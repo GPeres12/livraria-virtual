@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="menu">
-        <h1>Livraria Virtual</h1>
+        <img class="logo" src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="Logo da Livraria Virtual" class="logo">
+        <h1 class="titulo">Livraria Virtual</h1>
         <nav>
             <ul class="nav-menu">
-                <li><a href="tel:1454103368" class="contato-link">Tel (14) 5410-3368</a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#sobre">Sobre</a></li>
@@ -27,66 +27,200 @@
     </div>
 
     <main>
-        <section class="hero">
+        <section class="hero" id="home">
             <div class="container">
-                <h2>Bem-vindo à Livraria Virtual</h2>
-                <p>Encontre os melhores livros com entrega rápida. Cores suaves, leitura prazerosa!</p>
-                <a href="#catalogo" class="btn-hero">Ver Catálogo</a>
+                <h2>Livros para comprar e vender</h2>
+                <p>Uma livraria virtual simples: encontre avaliações, compre com facilidade e anuncie seus livros.</p>
+                <div class="actions-row">
+                    <a href="#catalogo" class="btn-hero">Ver Catálogo</a>
+                    <a href="#vender" class="btn-secondary">Quero Vender</a>
+                </div>
             </div>
         </section>
 
-        <section id="catalogo" class="catalogo">
-            <div class="container">
-                <h2>Nosso Catálogo</h2>
-                <div class="books-grid">
-                    <div class="book-card">
-                        <div class="book-img">📖</div>
-                        <h3>O Pequeno Príncipe</h3>
-                        <p>Antoine de Saint-Exupéry<br><strong>R$ 29,90</strong></p>
-                        <button class="buy-btn">Comprar</button>
+        <!-- Busca / Filtros -->
+        <section class="section" aria-label="Busca e filtros">
+            <div class="container panel">
+                <h2 class="section-title" style="display:none">Busca</h2>
+                <form class="search-row" action="#catalogo" method="get">
+                    <div>
+                        <label for="busca" style="position:absolute;left:-9999px;">Buscar livro</label>
+                        <input id="busca" class="input" type="search" placeholder="Buscar por título ou autor" />
+
                     </div>
-                    <div class="book-card">
-                        <div class="book-img">📚</div>
+                    <div>
+                        <label for="categoria" class="sr-only" style="position:absolute;left:-9999px;">Categoria</label>
+                        <select id="categoria" class="select">
+                            <option>Todas</option>
+                            <option>Literatura Brasileira</option>
+                            <option>Romance</option>
+                            <option>Fantasia</option>
+                            <option>Desenvolvimento Pessoal</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="ordenar" class="sr-only" style="position:absolute;left:-9999px;">Ordenar</label>
+                        <select id="ordenar" class="select">
+                            <option value="relevancia">Relevância</option>
+                            <option value="menor-preco">Menor preço</option>
+                            <option value="maior-preco">Maior preço</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Catálogo (comprar) -->
+        <section id="catalogo" class="catalogo section">
+            <div class="container">
+                <h2 class="section-title">Catálogo</h2>
+                <div class="books-grid">
+                    <article class="book-card">
+                        <div class="book-img">
+                            <img src="https://m.media-amazon.com/images/I/71AeB1+8dZL._SY466_.jpg" alt="O Jantar Secreto">
+                        </div>
+                        <h3>O Jantar Secreto</h3>
+                        <p>Raphael Montes<br><strong>R$ 41,29</strong></p>
+                        <button class="buy-btn" type="button">Comprar</button>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/61t0bwt1s3L._SY385_.jpg"></div>
                         <h3>1984</h3>
                         <p>George Orwell<br><strong>R$ 39,90</strong></p>
-                        <button class="buy-btn">Comprar</button>
+                        <button class="buy-btn" type="button">Comprar</button>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/815bfY-u6-L._SY385_.jpg"></div>
+                        <h3>O massacre da família Hope</h3>
+                        <p>Riley Sager<br><strong>R$ 49,78</strong></p>
+                        <button class="buy-btn" type="button">Comprar</button>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/41oZEOsAjTL._SY445_SX342_ML2_.jpg"></div>
+                        <h3>Nem te Conto</h3>
+                        <p>Emily Henry<br><strong>R$ 39,53</strong></p>
+                        <button class="buy-btn" type="button">Comprar</button>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/61M5CI0TS2L._SY342_.jpg"></div>
+                        <h3>Divergente</h3>
+                        <p>Veronica Roth<br><strong>R$ 47,67</strong></p>
+                        <button class="buy-btn" type="button">Comprar</button>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/51H+90dUjzL._SY445_SX342_ML2_.jpg"></div>
+                        <h3>A Metamorfose</h3>
+                        <p>Franz Kafka<br><strong>R$ 10,90</strong></p>
+                        <button class="buy-btn" type="button">Comprar</button>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/71PHtFqzj9L._SY425_.jpg"></div>
+                        <h3>De férias com você</h3>
+                        <p>J.K. Rowling<br><strong>R$ 38,64</strong></p>
+                        <button class="buy-btn" type="button">Comprar</button>
+                    </article>
+
+                    <article class="book-card">
+                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/71Gmavgu3ZL._SY425_.jpg"></div>
+                        <h3>Crime e Castigo</h3>
+                        <p>Fyodor Dostoevsky<br><strong>R$ 15,90</strong></p>
+                        <button class="buy-btn" type="button">Comprar</button>
+                    </article>
+
+                     <article class="book-card">
+                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/81XqiNjr5OL._SY466_.jpg"></div>
+                        <h3>Suicidas</h3>
+                        <p>Raphael Montes<br><strong>R$ 43,56</strong></p>
+                        <button class="buy-btn" type="button">Comprar</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vender -->
+        <section id="vender" class="section" aria-label="Vender livros">
+            <div class="container">
+                <h2 class="section-title">Quero vender</h2>
+
+                <form class="panel" action="#" method="post">
+                    <div class="grid-2">
+                        <div>
+                            <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Título</label>
+                            <input class="input" type="text" name="titulo" placeholder="Ex: O Senhor dos Anéis" required>
+                        </div>
+                        <div>
+                            <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Autor</label>
+                            <input class="input" type="text" name="autor" placeholder="Ex: J.R.R. Tolkien" required>
+                        </div>
                     </div>
-                    <div class="book-card">
-                        <div class="book-img">📖</div>
-                        <h3>Dom Casmurro</h3>
-                        <p>Machado de Assis<br><strong>R$ 25,00</strong></p>
-                        <button class="buy-btn">Comprar</button>
+
+                    <div class="grid-2" style="margin-top:16px">
+                        <div>
+                            <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Preço (R$)</label>
+                            <input class="input" type="number" name="preco" placeholder="Ex: 39,90" step="0.01" required>
+                        </div>
+                        <div>
+                            <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Condição</label>
+                            <select class="select" name="condicao" required>
+                                <option value="novo">Novo</option>
+                                <option value="usado">Usado</option>
+                                <option value="seminovo">Seminovo</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="book-card">
-                        <div class="book-img">📚</div>
-                        <h3>O Alquimista</h3>
-                        <p>Paulo Coelho<br><strong>R$ 34,90</strong></p>
-                        <button class="buy-btn">Comprar</button>
+
+                    <div style="margin-top:16px">
+                        <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Descrição</label>
+                        <textarea class="input" name="descricao" rows="4" placeholder="Conte sobre o livro..." required></textarea>
                     </div>
-                    <div class="book-card">
-                        <div class="book-img">📖</div>
-                        <h3>Sapiens</h3>
-                        <p>Yuval Noah Harari<br><strong>R$ 49,90</strong></p>
-                        <button class="buy-btn">Comprar</button>
+
+                    <div class="actions-row">
+                        <button class="btn-primary" type="submit">Publicar anúncio</button>
+                        <button class="btn-secondary" type="reset">Limpar</button>
                     </div>
-                    <div class="book-card">
-                        <div class="book-img">📚</div>
-                        <h3>A Menina que Roubava Livros</h3>
-                        <p>Markus Zusak<br><strong>R$ 42,00</strong></p>
-                        <button class="buy-btn">Comprar</button>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-img">📖</div>
-                        <h3>Harry Potter I</h3>
-                        <p>J.K. Rowling<br><strong>R$ 55,90</strong></p>
-                        <button class="buy-btn">Comprar</button>
-                    </div>
-                    <div class="book-card">
-                        <div class="book-img">📚</div>
-                        <h3>O Nome do Vento</h3>
-                        <p>Patrick Rothfuss<br><strong>R$ 48,50</strong></p>
-                        <button class="buy-btn">Comprar</button>
-                    </div>
+
+                    <p style="margin:14px 0 0; color: var(--brown-700); font-size: 0.95rem">
+                        Observação: esta é apenas a tela (sem backend). O envio não grava dados.
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Avaliações -->
+        <section class="section" id="avaliacoes" aria-label="Avaliações de clientes">
+            <div class="container">
+                <h2 class="section-title">Avaliações</h2>
+
+                <div class="books-grid">
+                    <article class="book-card review-card">
+                        <div class="stars">★★★★★</div>
+                        <h3 style="margin-top:0">Entrega rápida</h3>
+                        <p class="book-card" style="background:transparent; border:none; box-shadow:none; padding:0; margin:10px 0 0; color: var(--brown-700)">
+                            “Chegou bem embalado e exatamente como na descrição. Recomendo!”
+                        </p>
+                    </article>
+
+                    <article class="book-card review-card">
+                        <div class="stars">★★★★★</div>
+                        <h3 style="margin-top:0">Preço justo</h3>
+                        <p class="book-card" style="background:transparent; border:none; box-shadow:none; padding:0; margin:10px 0 0; color: var(--brown-700)">
+                            “Achei livros em promoção e a navegação do site é bem fácil.”
+                        </p>
+                    </article>
+
+                    <article class="book-card review-card">
+                        <div class="stars">★★★★☆</div>
+                        <h3 style="margin-top:0">Bom atendimento</h3>
+                        <p class="book-card" style="background:transparent; border:none; box-shadow:none; padding:0; margin:10px 0 0; color: var(--brown-700)">
+                            “Ótima experiência. Só queria mais opções de categorias.”
+                        </p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -94,7 +228,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Livraria Virtual. Todos os direitos reservados. Tel: (14) 5410-3368</p>
+            <p>&copy; 2026 Livraria Virtual. Todos os direitos reservados.</p>
         </div>
     </footer>
 </body>
