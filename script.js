@@ -25,11 +25,4 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('menu-open');
         });
     });
-
-// Buy buttons
-document.querySelectorAll('.buy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        alert('Livro adicionado ao carrinho! 🚀');
-    });
-});
 });

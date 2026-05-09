@@ -1,6 +1,6 @@
 # 📚 **Sebo Virtual — Livros para Todos**
 
-O **Sebo Virtual** é uma livraria online voltada para a venda de livros novos e usados a preços acessíveis. A proposta do projeto é facilitar o acesso à leitura, promovendo economia e sustentabilidade por meio da reutilização de livros.
+A **Livraria Virtual** é uma livraria online voltada para a venda de livros novos e usados a preços acessíveis. A proposta do projeto é facilitar o acesso à leitura, promovendo economia e sustentabilidade por meio da reutilização de livros.
 
 ---
 
