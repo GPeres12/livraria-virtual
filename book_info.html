@@ -1,15 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livraria Virtual</title>
+    <title>Detalhes do Livro - Versus</title>
     <link rel="stylesheet" href="book_info.css">
 </head>
 <body>
-    <h1>Informações do Livro</h1>
-    <div class="book-info">
-        </div>
+    <div class="header">
+        <a href="index.html" class="back-btn">← Voltar</a>
+        <h1>Versus</h1>
     </div>
+
+    <main class="container">
+        <div id="loading" class="loading">
+            <p>Carregando informações do livro...</p>
+        </div>
+
+        <div id="book-details" class="book-details" style="display: none;">
+            <div class="book-cover-section">
+                <img id="book-cover" src="" alt="Capa do livro" class="book-cover">
+            </div>
+
+            <div class="book-info-section">
+                <h1 id="book-title"></h1>
+                <p id="book-author" class="author"></p>
+                <p id="book-publisher" class="publisher"></p>
+                <p id="book-published" class="published"></p>
+                <p id="book-pages" class="pages"></p>
+                
+                <div class="rating-section">
+                    <p id="book-rating" class="rating"></p>
+                </div>
+
+                <div class="actions">
+                    <button class="btn-buy">Comprar Agora</button>
+                    <button class="btn-wishlist">❤ Wishlist</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="description-section" class="description-section" style="display: none;">
+            <h2>Descrição</h2>
+            <p id="book-description"></p>
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            <p>Desculpe, não conseguimos encontrar informações deste livro.</p>
+            <a href="index.html" class="btn-primary">Voltar ao Catálogo</a>
+        </div>
+    </main>
+
+    <script src="book_info_script.js"></script>
+</body>
+</html>
 </body>
 </html>
