@@ -1,235 +1,815 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livraria Virtual</title>
+    <title>Versus — Livros Novos e Seminovos</title>
+    <link rel="icon" type="image/jpeg" href="Logo.jpeg">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="menu">
-        <img class="logo" src="Logo.jpeg" alt="Logo da Livraria Virtual" class="logo">
-        <h1 class="titulo">Livraria Virtual</h1>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#agenda" class="btn-agendar">Agendar Consulta</a></li>
-            </ul>
-        </nav>
-        <button class="hamburger" aria-label="Toggle Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
+
+    <!-- Cabeçalho Principal -->
+    <header class="header-wrapper">
+        <div class="menu">
+            <a href="#home" class="brand-link" aria-label="Página inicial da Livraria Virtual">
+                <img class="logo" src="Logo.jpeg" alt="Logo da Livraria Virtual">
+                <span class="titulo">Versus</span>
+            </a>
+
+            <nav aria-label="Navegação principal">
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#vender">Quero Vender</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
+                    <li><a href="#vender" class="btn-nav-action">Anunciar Livro</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" aria-label="Alternar navegação" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
 
     <main>
+        <!-- Seção Hero -->
         <section class="hero" id="home">
             <div class="container">
+                <span class="hero-pill">Acervo Selecionado &bull; Livros Novos e Seminovos</span>
                 <h2>Livros para comprar e vender</h2>
-                <p>Uma livraria virtual simples: encontre avaliações, compre com facilidade e anuncie seus livros.</p>
+                <p>Uma livraria virtual simples e elegante: encontre avaliações verificadas, compre com facilidade e anuncie seus livros com segurança.</p>
+                
                 <div class="actions-row">
-                    <a href="#catalogo" class="btn-hero">Ver Catálogo</a>
-                    <a href="#vender" class="btn-secondary">Quero Vender</a>
+                    <a href="#catalogo" class="btn-hero">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        Ver Catálogo
+                    </a>
+                    <a href="#vender" class="btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
+                        Quero Vender
+                    </a>
+                </div>
+
+                <!-- Faixa de Garantias e Confiança -->
+                <div class="trust-strip">
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div class="trust-text">
+                            <h4>Acervo Verificado</h4>
+                            <p>Livros rigorosamente inspecionados.</p>
+                        </div>
+                    </div>
+
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="trust-text">
+                            <h4>Checkout Stripe</h4>
+                            <p>Pagamentos com criptografia SSL 256 bits.</p>
+                        </div>
+                    </div>
+
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                        </div>
+                        <div class="trust-text">
+                            <h4>Envio Rápido</h4>
+                            <p>Rastreamento ponto a ponto dos pedidos.</p>
+                        </div>
+                    </div>
+
+                    <div class="trust-item">
+                        <div class="trust-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="trust-text">
+                            <h4>Economia Circular</h4>
+                            <p>Mais leitura com preço justo e sustentabilidade.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Busca / Filtros -->
-        <section class="section" aria-label="Busca e filtros">
-            <div class="container panel">
-                <h2 class="section-title" style="display:none">Busca</h2>
-                <form class="search-row" action="#catalogo" method="get">
-                    <div>
-                        <label for="busca" style="position:absolute;left:-9999px;">Buscar livro</label>
-                        <input id="busca" class="input" type="search" placeholder="Buscar por título ou autor" />
+        <!-- Barra de Busca, Filtros e Ordenação -->
+        <section class="search-section" aria-label="Pesquisa e filtros de livros">
+            <div class="container">
+                <div class="search-panel">
+                    <form class="search-row" action="#catalogo" method="get">
+                        <div class="search-input-wrapper">
+                            <span class="search-icon-inside">
+                                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            </span>
+                            <label for="busca" style="position:absolute;left:-9999px;">Buscar livro por título ou autor</label>
+                            <input id="busca" class="input with-icon" type="search" placeholder="Buscar por título ou autor (ex: Raphael Montes, Kafka, Orwell...)" autocomplete="off" />
+                        </div>
 
+                        <div class="select-wrapper">
+                            <label for="categoria" style="position:absolute;left:-9999px;">Filtrar por Categoria</label>
+                            <select id="categoria" class="select">
+                                <option value="Todas">Todas as Categorias</option>
+                                <option value="Literatura Brasileira">Literatura Brasileira</option>
+                                <option value="Literatura Internacional">Literatura Internacional</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Ficção e Fantasia">Ficção e Fantasia</option>
+                                <option value="Suspense e Mistério">Suspense e Mistério</option>
+                            </select>
+                            <span class="select-arrow">
+                                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                        </div>
+
+                        <div class="select-wrapper">
+                            <label for="ordenar" style="position:absolute;left:-9999px;">Ordenar por</label>
+                            <select id="ordenar" class="select">
+                                <option value="relevancia">Relevância</option>
+                                <option value="menor-preco">Menor preço</option>
+                                <option value="maior-preco">Maior preço</option>
+                                <option value="titulo">Título (A - Z)</option>
+                            </select>
+                            <span class="select-arrow">
+                                <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </span>
+                        </div>
+                    </form>
+
+                    <div class="search-status-bar">
+                        <span id="results-counter" class="results-badge">Carregando catálogo...</span>
+                        <button type="button" id="btn-reset-filters" class="btn-reset-filters">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            Limpar filtros
+                        </button>
                     </div>
-                    <div>
-                        <label for="categoria" class="sr-only" style="position:absolute;left:-9999px;">Categoria</label>
-                        <select id="categoria" class="select">
-                            <option>Todas</option>
-                            <option>Literatura Brasileira</option>
-                            <option>Romance</option>
-                            <option>Fantasia</option>
-                            <option>Desenvolvimento Pessoal</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="ordenar" class="sr-only" style="position:absolute;left:-9999px;">Ordenar</label>
-                        <select id="ordenar" class="select">
-                            <option value="relevancia">Relevância</option>
-                            <option value="menor-preco">Menor preço</option>
-                            <option value="maior-preco">Maior preço</option>
-                        </select>
-                    </div>
-                </form>
+                </div>
             </div>
         </section>
 
-        <!-- Catálogo (comprar) -->
+        <!-- Catálogo de Livros -->
         <section id="catalogo" class="catalogo section">
             <div class="container">
-                <h2 class="section-title">Catálogo</h2>
+                <div class="section-header">
+                    <span class="section-subtitle">Catálogo Disponível</span>
+                    <h2 class="section-title">Obras Selecionadas</h2>
+                    <p class="section-description">Confira exemplares novos e seminovos prontos para envio imediato com pagamento seguro.</p>
+                </div>
+
                 <div class="books-grid">
-                    <article class="book-card">
-                        <div class="book-img">
-                            <img src="https://m.media-amazon.com/images/I/71AeB1+8dZL._SY466_.jpg" alt="O Jantar Secreto">
+                    <!-- Livro 1 -->
+                    <article class="book-card" data-id="1" data-title="O Jantar Secreto" data-author="Raphael Montes" data-category="Literatura Brasileira" data-price="41.29">
+                        <div>
+                            <div class="book-header">
+                                <span class="book-category">Literatura Brasileira</span>
+                                <span class="book-condition">Seminovo</span>
+                            </div>
+                            <div class="book-cover-container">
+                                <div class="book-cover-wrapper">
+                                    <img class="book-cover-img" src="https://m.media-amazon.com/images/I/71AeB1+8dZL._SY466_.jpg" alt="Capa de O Jantar Secreto" loading="lazy">
+                                </div>
+                            </div>
                         </div>
-                        <h3>O Jantar Secreto</h3>
-                        <p>Raphael Montes<br><strong>R$ 41,29</strong></p>
-                        <a href="book_info.html" class="buy-btn" type="button">Comprar</a>
+                        <div class="book-info">
+                            <h3 class="book-title">O Jantar Secreto</h3>
+                            <p class="book-author">Raphael Montes</p>
+                            <div class="book-price-row">
+                                <span class="book-price-label">Preço</span>
+                                <span class="book-price">R$ 41,29</span>
+                            </div>
+                            <div class="book-actions">
+                                <button type="button" class="buy-btn" data-buy-id="1">
+                                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    Comprar
+                                </button>
+                                <a href="book_info.html?id=1" class="details-btn">Detalhes</a>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="book-card">
-                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/61t0bwt1s3L._SY385_.jpg"></div>
-                        <h3>1984</h3>
-                        <p>George Orwell<br><strong>R$ 39,90</strong></p>
-                        <a href="book_info.html" class="buy-btn" type="button">Comprar</a>
+                    <!-- Livro 2 -->
+                    <article class="book-card" data-id="2" data-title="1984" data-author="George Orwell" data-category="Literatura Internacional" data-price="39.90">
+                        <div>
+                            <div class="book-header">
+                                <span class="book-category">Literatura Internacional</span>
+                                <span class="book-condition">Novo</span>
+                            </div>
+                            <div class="book-cover-container">
+                                <div class="book-cover-wrapper">
+                                    <img class="book-cover-img" src="https://m.media-amazon.com/images/I/61t0bwt1s3L._SY385_.jpg" alt="Capa de 1984" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">1984</h3>
+                            <p class="book-author">George Orwell</p>
+                            <div class="book-price-row">
+                                <span class="book-price-label">Preço</span>
+                                <span class="book-price">R$ 39,90</span>
+                            </div>
+                            <div class="book-actions">
+                                <button type="button" class="buy-btn" data-buy-id="2">
+                                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    Comprar
+                                </button>
+                                <a href="book_info.html?id=2" class="details-btn">Detalhes</a>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="book-card">
-                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/815bfY-u6-L._SY385_.jpg"></div>
-                        <h3>O massacre da família Hope</h3>
-                        <p>Riley Sager<br><strong>R$ 49,78</strong></p>
-                        <a href="book_info.html" class="buy-btn" type="button">Comprar</a>
+                    <!-- Livro 3 -->
+                    <article class="book-card" data-id="3" data-title="O Massacre da Família Hope" data-author="Riley Sager" data-category="Suspense e Mistério" data-price="49.78">
+                        <div>
+                            <div class="book-header">
+                                <span class="book-category">Suspense e Mistério</span>
+                                <span class="book-condition">Novo</span>
+                            </div>
+                            <div class="book-cover-container">
+                                <div class="book-cover-wrapper">
+                                    <img class="book-cover-img" src="https://m.media-amazon.com/images/I/815bfY-u6-L._SY385_.jpg" alt="Capa de O Massacre da Família Hope" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">O Massacre da Família Hope</h3>
+                            <p class="book-author">Riley Sager</p>
+                            <div class="book-price-row">
+                                <span class="book-price-label">Preço</span>
+                                <span class="book-price">R$ 49,78</span>
+                            </div>
+                            <div class="book-actions">
+                                <button type="button" class="buy-btn" data-buy-id="3">
+                                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    Comprar
+                                </button>
+                                <a href="book_info.html?id=3" class="details-btn">Detalhes</a>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="book-card">
-                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/41oZEOsAjTL._SY445_SX342_ML2_.jpg"></div>
-                        <h3>Nem te Conto</h3>
-                        <p>Emily Henry<br><strong>R$ 39,53</strong></p>
-                        <a href="book_info.html" class="buy-btn" type="button">Comprar</a>
+                    <!-- Livro 4 -->
+                    <article class="book-card" data-id="4" data-title="Nem te Conto" data-author="Emily Henry" data-category="Romance" data-price="39.53">
+                        <div>
+                            <div class="book-header">
+                                <span class="book-category">Romance</span>
+                                <span class="book-condition">Seminovo</span>
+                            </div>
+                            <div class="book-cover-container">
+                                <div class="book-cover-wrapper">
+                                    <img class="book-cover-img" src="https://m.media-amazon.com/images/I/41oZEOsAjTL._SY445_SX342_ML2_.jpg" alt="Capa de Nem te Conto" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">Nem te Conto</h3>
+                            <p class="book-author">Emily Henry</p>
+                            <div class="book-price-row">
+                                <span class="book-price-label">Preço</span>
+                                <span class="book-price">R$ 39,53</span>
+                            </div>
+                            <div class="book-actions">
+                                <button type="button" class="buy-btn" data-buy-id="4">
+                                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    Comprar
+                                </button>
+                                <a href="book_info.html?id=4" class="details-btn">Detalhes</a>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="book-card">
-                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/61M5CI0TS2L._SY342_.jpg"></div>
-                        <h3>Divergente</h3>
-                        <p>Veronica Roth<br><strong>R$ 47,67</strong></p>
-                        <a href="book_info.html" class="buy-btn" type="button">Comprar</a>
+                    <!-- Livro 5 -->
+                    <article class="book-card" data-id="5" data-title="Divergente" data-author="Veronica Roth" data-category="Ficção e Fantasia" data-price="47.67">
+                        <div>
+                            <div class="book-header">
+                                <span class="book-category">Ficção e Fantasia</span>
+                                <span class="book-condition">Usado</span>
+                            </div>
+                            <div class="book-cover-container">
+                                <div class="book-cover-wrapper">
+                                    <img class="book-cover-img" src="https://m.media-amazon.com/images/I/61M5CI0TS2L._SY342_.jpg" alt="Capa de Divergente" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">Divergente</h3>
+                            <p class="book-author">Veronica Roth</p>
+                            <div class="book-price-row">
+                                <span class="book-price-label">Preço</span>
+                                <span class="book-price">R$ 47,67</span>
+                            </div>
+                            <div class="book-actions">
+                                <button type="button" class="buy-btn" data-buy-id="5">
+                                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    Comprar
+                                </button>
+                                <a href="book_info.html?id=5" class="details-btn">Detalhes</a>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="book-card">
-                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/51H+90dUjzL._SY445_SX342_ML2_.jpg"></div>
-                        <h3>A Metamorfose</h3>
-                        <p>Franz Kafka<br><strong>R$ 10,90</strong></p>
-                        <a href="book_info.html" class="buy-btn" type="button">Comprar</a>
+                    <!-- Livro 6 -->
+                    <article class="book-card" data-id="6" data-title="A Metamorfose" data-author="Franz Kafka" data-category="Literatura Internacional" data-price="10.90">
+                        <div>
+                            <div class="book-header">
+                                <span class="book-category">Literatura Internacional</span>
+                                <span class="book-condition">Usado</span>
+                            </div>
+                            <div class="book-cover-container">
+                                <div class="book-cover-wrapper">
+                                    <img class="book-cover-img" src="https://m.media-amazon.com/images/I/51H+90dUjzL._SY445_SX342_ML2_.jpg" alt="Capa de A Metamorfose" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">A Metamorfose</h3>
+                            <p class="book-author">Franz Kafka</p>
+                            <div class="book-price-row">
+                                <span class="book-price-label">Preço</span>
+                                <span class="book-price">R$ 10,90</span>
+                            </div>
+                            <div class="book-actions">
+                                <button type="button" class="buy-btn" data-buy-id="6">
+                                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    Comprar
+                                </button>
+                                <a href="book_info.html?id=6" class="details-btn">Detalhes</a>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="book-card">
-                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/71PHtFqzj9L._SY425_.jpg"></div>
-                        <h3>De férias com você</h3>
-                        <p>J.K. Rowling<br><strong>R$ 38,64</strong></p>
-                        <a href="book_info.html" class="buy-btn" type="button">Comprar</a>
+                    <!-- Livro 7 -->
+                    <article class="book-card" data-id="7" data-title="De Férias com Você" data-author="Emily Henry" data-category="Romance" data-price="38.64">
+                        <div>
+                            <div class="book-header">
+                                <span class="book-category">Romance</span>
+                                <span class="book-condition">Seminovo</span>
+                            </div>
+                            <div class="book-cover-container">
+                                <div class="book-cover-wrapper">
+                                    <img class="book-cover-img" src="https://m.media-amazon.com/images/I/71PHtFqzj9L._SY425_.jpg" alt="Capa de De Férias com Você" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">De Férias com Você</h3>
+                            <p class="book-author">Emily Henry</p>
+                            <div class="book-price-row">
+                                <span class="book-price-label">Preço</span>
+                                <span class="book-price">R$ 38,64</span>
+                            </div>
+                            <div class="book-actions">
+                                <button type="button" class="buy-btn" data-buy-id="7">
+                                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    Comprar
+                                </button>
+                                <a href="book_info.html?id=7" class="details-btn">Detalhes</a>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="book-card">
-                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/71Gmavgu3ZL._SY425_.jpg"></div>
-                        <h3>Crime e Castigo</h3>
-                        <p>Fyodor Dostoevsky<br><strong>R$ 15,90</strong></p>
-                        <a href="book_info.html" class="buy-btn" type="button">Comprar</a>
+                    <!-- Livro 8 -->
+                    <article class="book-card" data-id="8" data-title="Crime e Castigo" data-author="Fiódor Dostoiévski" data-category="Literatura Internacional" data-price="15.90">
+                        <div>
+                            <div class="book-header">
+                                <span class="book-category">Literatura Internacional</span>
+                                <span class="book-condition">Usado</span>
+                            </div>
+                            <div class="book-cover-container">
+                                <div class="book-cover-wrapper">
+                                    <img class="book-cover-img" src="https://m.media-amazon.com/images/I/71Gmavgu3ZL._SY425_.jpg" alt="Capa de Crime e Castigo" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">Crime e Castigo</h3>
+                            <p class="book-author">Fiódor Dostoiévski</p>
+                            <div class="book-price-row">
+                                <span class="book-price-label">Preço</span>
+                                <span class="book-price">R$ 15,90</span>
+                            </div>
+                            <div class="book-actions">
+                                <button type="button" class="buy-btn" data-buy-id="8">
+                                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    Comprar
+                                </button>
+                                <a href="book_info.html?id=8" class="details-btn">Detalhes</a>
+                            </div>
+                        </div>
                     </article>
 
-                     <article class="book-card">
-                        <div class="book-img"><img src="https://m.media-amazon.com/images/I/81XqiNjr5OL._SY466_.jpg"></div>
-                        <h3>Suicidas</h3>
-                        <p>Raphael Montes<br><strong>R$ 43,56</strong></p>
-                        <a href="book_info.html" class="buy-btn" type="button">Comprar</a>
+                    <!-- Livro 9 -->
+                    <article class="book-card" data-id="9" data-title="Suicidas" data-author="Raphael Montes" data-category="Literatura Brasileira" data-price="43.56">
+                        <div>
+                            <div class="book-header">
+                                <span class="book-category">Literatura Brasileira</span>
+                                <span class="book-condition">Novo</span>
+                            </div>
+                            <div class="book-cover-container">
+                                <div class="book-cover-wrapper">
+                                    <img class="book-cover-img" src="https://m.media-amazon.com/images/I/81XqiNjr5OL._SY466_.jpg" alt="Capa de Suicidas" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">Suicidas</h3>
+                            <p class="book-author">Raphael Montes</p>
+                            <div class="book-price-row">
+                                <span class="book-price-label">Preço</span>
+                                <span class="book-price">R$ 43,56</span>
+                            </div>
+                            <div class="book-actions">
+                                <button type="button" class="buy-btn" data-buy-id="9">
+                                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                    Comprar
+                                </button>
+                                <a href="book_info.html?id=9" class="details-btn">Detalhes</a>
+                            </div>
+                        </div>
                     </article>
+
+                    <!-- Estado vazio (oculto por padrão) -->
+                    <div id="no-results-state" class="no-results-box" style="display: none;">
+                        <div class="no-results-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </div>
+                        <h3>Nenhum livro encontrado</h3>
+                        <p>Não encontramos nenhum exemplar para os termos selecionados. Experimente buscar por outro título, autor ou limpe os filtros aplicados.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Vender -->
-        <section id="vender" class="section" aria-label="Vender livros">
-            <div class="container">
-                <h2 class="section-title">Quero vender</h2>
+        <!-- Seção Quero Vender -->
+        <section id="vender" class="vender-section section" aria-label="Anunciar e vender livros">
+            <div class="container vender-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Economia Circular</span>
+                    <h2 class="section-title">Quero Vender</h2>
+                    <p class="section-description">Desapegue daqueles exemplares parados na sua estante e compartilhe histórias com outros leitores.</p>
+                </div>
 
-                <form class="panel" action="#" method="post">
-                    <div class="grid-2">
-                        <div>
-                            <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Título</label>
-                            <input class="input" type="text" name="titulo" placeholder="Ex: O Senhor dos Anéis" required>
+                <div class="panel">
+                    <form id="vender-form" action="#" method="post">
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label class="form-label" for="vender-titulo">Título da Obra</label>
+                                <input id="vender-titulo" class="input" type="text" name="titulo" placeholder="Ex: O Senhor dos Anéis" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="vender-autor">Autor(a)</label>
+                                <input id="vender-autor" class="input" type="text" name="autor" placeholder="Ex: J.R.R. Tolkien" required>
+                            </div>
                         </div>
-                        <div>
-                            <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Autor</label>
-                            <input class="input" type="text" name="autor" placeholder="Ex: J.R.R. Tolkien" required>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label class="form-label" for="vender-preco">Preço Desejado (R$)</label>
+                                <input id="vender-preco" class="input" type="number" name="preco" placeholder="Ex: 39,90" step="0.01" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="vender-condicao">Estado de Conservação</label>
+                                <div class="select-wrapper">
+                                    <select id="vender-condicao" class="select" name="condicao" required>
+                                        <option value="novo">Novo (Lacrado ou sem marcas)</option>
+                                        <option value="seminovo" selected>Seminovo (Excelente estado)</option>
+                                        <option value="usado">Usado (Com leves marcas de manuseio)</option>
+                                    </select>
+                                    <span class="select-arrow">
+                                        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="grid-2" style="margin-top:16px">
-                        <div>
-                            <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Preço (R$)</label>
-                            <input class="input" type="number" name="preco" placeholder="Ex: 39,90" step="0.01" required>
+                        <div class="form-group">
+                            <label class="form-label" for="vender-descricao">Descrição e Detalhes do Exemplar</label>
+                            <textarea id="vender-descricao" class="textarea" name="descricao" rows="4" placeholder="Descreva edição, editora, ano de publicação ou observações pertinentes..." required></textarea>
                         </div>
-                        <div>
-                            <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Condição</label>
-                            <select class="select" name="condicao" required>
-                                <option value="novo">Novo</option>
-                                <option value="usado">Usado</option>
-                                <option value="seminovo">Seminovo</option>
-                            </select>
+
+                        <div class="actions-row" style="justify-content: flex-start; margin-top: 20px;">
+                            <button class="btn-primary" type="submit">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Publicar Anúncio
+                            </button>
+                            <button class="btn-secondary" type="reset">Limpar Campos</button>
                         </div>
-                    </div>
 
-                    <div style="margin-top:16px">
-                        <label class="section-title" style="font-size:1.1rem; text-align:left; margin:0 0 8px">Descrição</label>
-                        <textarea class="input" name="descricao" rows="4" placeholder="Conte sobre o livro..." required></textarea>
-                    </div>
-
-                    <div class="actions-row">
-                        <button class="btn-primary" type="submit">Publicar anúncio</button>
-                        <button class="btn-secondary" type="reset">Limpar</button>
-                    </div>
-
-                    <p style="margin:14px 0 0; color: var(--brown-700); font-size: 0.95rem">
-                        Observação: esta é apenas a tela (sem backend). O envio não grava dados.
-                    </p>
-                </form>
+                        <div id="vender-success-alert" class="form-alert">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <span>Anúncio enviado para moderação com sucesso! Entraremos em contato com você via e-mail.</span>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
 
-        <!-- Avaliações -->
-        <section class="section" id="avaliacoes" aria-label="Avaliações de clientes">
+        <!-- Seção de Avaliações -->
+        <section class="section" id="avaliacoes" aria-label="Avaliações de leitores">
             <div class="container">
-                <h2 class="section-title">Avaliações</h2>
+                <div class="section-header">
+                    <span class="section-subtitle">Opinião de Quem Já Comprou</span>
+                    <h2 class="section-title">Avaliações Verificadas</h2>
+                    <p class="section-description">Transparência e compromisso com o leitor em cada encomenda entregue.</p>
+                </div>
 
-                <div class="books-grid">
-                    <article class="book-card review-card">
-                        <div class="stars">★★★★★</div>
-                        <h3 style="margin-top:0">Entrega rápida</h3>
-                        <p class="book-card" style="background:transparent; border:none; box-shadow:none; padding:0; margin:10px 0 0; color: var(--brown-700)">
-                            “Chegou bem embalado e exatamente como na descrição. Recomendo!”
-                        </p>
+                <div class="reviews-grid">
+                    <article class="review-card">
+                        <div>
+                            <div class="review-header">
+                                <div class="stars-svg-row">
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </div>
+                                <span class="verified-badge">
+                                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Compra Verificada
+                                </span>
+                            </div>
+                            <h3 class="review-title">Entrega rápida e livro impecável</h3>
+                            <p class="review-text">“O livro chegou muito bem embalado e exatamente como descrito no anúncio. A navegação e a finalização de compra pelo site foram impecáveis.”</p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">MS</div>
+                            <div class="author-meta">
+                                <h5>Mariana Silva</h5>
+                                <span>Curitiba, PR</span>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="book-card review-card">
-                        <div class="stars">★★★★★</div>
-                        <h3 style="margin-top:0">Preço justo</h3>
-                        <p class="book-card" style="background:transparent; border:none; box-shadow:none; padding:0; margin:10px 0 0; color: var(--brown-700)">
-                            “Achei livros em promoção e a navegação do site é bem fácil.”
-                        </p>
+                    <article class="review-card">
+                        <div>
+                            <div class="review-header">
+                                <div class="stars-svg-row">
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </div>
+                                <span class="verified-badge">
+                                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Compra Verificada
+                                </span>
+                            </div>
+                            <h3 class="review-title">Preço justo e acervo de qualidade</h3>
+                            <p class="review-text">“Encontrei clássicos que estavam em falta em outras lojas por um valor muito acessível. A experiência de compra passa muita segurança.”</p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">RC</div>
+                            <div class="author-meta">
+                                <h5>Rodrigo Carvalho</h5>
+                                <span>São Paulo, SP</span>
+                            </div>
+                        </div>
                     </article>
 
-                    <article class="book-card review-card">
-                        <div class="stars">★★★★☆</div>
-                        <h3 style="margin-top:0">Bom atendimento</h3>
-                        <p class="book-card" style="background:transparent; border:none; box-shadow:none; padding:0; margin:10px 0 0; color: var(--brown-700)">
-                            “Ótima experiência. Só queria mais opções de categorias.”
-                        </p>
+                    <article class="review-card">
+                        <div>
+                            <div class="review-header">
+                                <div class="stars-svg-row">
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                    <svg viewBox="0 0 24 24" class="empty"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </div>
+                                <span class="verified-badge">
+                                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Compra Verificada
+                                </span>
+                            </div>
+                            <h3 class="review-title">Excelente suporte e cuidado</h3>
+                            <p class="review-text">“Fiz uma pergunta sobre o estado do exemplar e me responderam prontamente com fotos e detalhes. Recomendo a livraria para todos.”</p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">AL</div>
+                            <div class="author-meta">
+                                <h5>Amanda Lopes</h5>
+                                <span>Belo Horizonte, MG</span>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Rodapé -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Livraria Virtual. Todos os direitos reservados.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="brand-link">
+                        <img class="logo" src="Logo.jpeg" alt="Logo da Livraria Virtual">
+                        <span class="titulo">Livraria Virtual</span>
+                    </a>
+                    <p>Conectando leitores a grandes histórias com compromisso, sustentabilidade e preços acessíveis.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="#vender">Quero Vender</a></li>
+                        <li><a href="#avaliacoes">Avaliações</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Categorias</h4>
+                    <ul class="footer-links">
+                        <li><a href="#catalogo">Literatura Brasileira</a></li>
+                        <li><a href="#catalogo">Literatura Internacional</a></li>
+                        <li><a href="#catalogo">Romance</a></li>
+                        <li><a href="#catalogo">Suspense e Mistério</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <div class="stripe-footer-badge">
+                        <div class="stripe-header-row">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            <span>Pagamento via Stripe</span>
+                        </div>
+                        <p>Plataforma equipada com checkout integrado e proteção de dados em conformidade com o padrão PCI-DSS Nível 1.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Livraria Virtual. Todos os direitos reservados.</p>
+                <p>Termos de Uso &bull; Política de Privacidade &bull; Segurança de Pagamentos</p>
+            </div>
         </div>
     </footer>
+
+    <!-- MODAL DE CHECKOUT STRIPE (SIMULAÇÃO PROFISSIONAL) -->
+    <div id="stripe-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+        <div class="modal-container">
+            <button id="modal-close-btn" class="modal-close-btn" aria-label="Fechar checkout" type="button">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <div class="stripe-modal-layout">
+                <!-- Coluna 1: Resumo do Pedido -->
+                <div class="stripe-order-summary">
+                    <div>
+                        <div class="stripe-badge-top">
+                            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            <span>Stripe Checkout</span>
+                        </div>
+
+                        <div class="modal-book-preview">
+                            <img id="modal-book-img" class="modal-book-img" src="" alt="Capa do livro selecionado">
+                            <div class="modal-book-details">
+                                <h4 id="modal-book-title" class="modal-book-title">Carregando livro...</h4>
+                                <p id="modal-book-author" class="modal-book-author">Autor</p>
+                                <span id="modal-book-cond" class="modal-book-cond">Seminovo</span>
+                            </div>
+                        </div>
+
+                        <div class="order-breakdown">
+                            <div class="breakdown-row">
+                                <span>Subtotal da obra</span>
+                                <span id="modal-order-subtotal">R$ 0,00</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Frete padrão</span>
+                                <span style="color: var(--green-success); font-weight:600;">Grátis</span>
+                            </div>
+                            <div class="breakdown-row total">
+                                <span>Total a pagar</span>
+                                <span id="modal-order-total">R$ 0,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="security-notice">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <span>Criptografia de ponta a ponta de 256 bits via gateway Stripe.</span>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Formulário de Pagamento Stripe -->
+                <div class="stripe-payment-form">
+                    <!-- Vista 1: Formulário Principal -->
+                    <div id="checkout-form-view" class="checkout-view">
+                        <h3 id="checkout-modal-title" class="form-header-title">Finalizar Compra</h3>
+                        <p class="form-header-sub">Preencha seus dados para simular o pagamento com validação da Stripe.</p>
+
+                        <!-- Banner de Simulação com Botão de Auto-preenchimento -->
+                        <div class="simulation-banner">
+                            <div class="sim-info">
+                                <strong>Ambiente de Teste Ativo</strong><br>
+                                Use o cartão de teste oficial ou clique ao lado.
+                            </div>
+                            <button type="button" id="btn-autofill-test" class="btn-autofill-test">Preencher Teste</button>
+                        </div>
+
+                        <form id="stripe-payment-form">
+                            <div class="checkout-grid">
+                                <div class="checkout-field full">
+                                    <label class="checkout-label" for="customer-name">Nome Completo</label>
+                                    <input id="customer-name" class="input" type="text" placeholder="Nome impresso no cartão" required>
+                                </div>
+
+                                <div class="checkout-field">
+                                    <label class="checkout-label" for="customer-email">E-mail para Envio</label>
+                                    <input id="customer-email" class="input" type="email" placeholder="seu@email.com" required>
+                                </div>
+
+                                <div class="checkout-field">
+                                    <label class="checkout-label" for="customer-cpf">CPF do Titular</label>
+                                    <input id="customer-cpf" class="input" type="text" placeholder="000.000.000-00" maxlength="14" required>
+                                </div>
+
+                                <div class="checkout-field full">
+                                    <label class="checkout-label" for="card-number">Número do Cartão de Crédito</label>
+                                    <div class="card-input-wrapper">
+                                        <input id="card-number" class="input" type="text" placeholder="4242 4242 4242 4242" maxlength="19" required>
+                                        <div id="card-brand-indicator" class="card-brand-indicator">
+                                            <span class="card-brand-tag">STRIPE</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="checkout-field">
+                                    <label class="checkout-label" for="card-exp">Validade (MM/AA)</label>
+                                    <input id="card-exp" class="input" type="text" placeholder="MM/AA" maxlength="5" required>
+                                </div>
+
+                                <div class="checkout-field">
+                                    <label class="checkout-label" for="card-cvc">Código CVC</label>
+                                    <input id="card-cvc" class="input" type="text" placeholder="123" maxlength="4" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="btn-stripe-pay" class="btn-stripe-pay">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                <span id="btn-pay-amount">Pagar com Stripe</span>
+                            </button>
+
+                            <p class="stripe-footer-note">Ambiente seguro com conformidade PCI-DSS. Transação simulada.</p>
+                        </form>
+                    </div>
+
+                    <!-- Vista 2: Processamento com Spinner -->
+                    <div id="checkout-processing-view" class="checkout-view checkout-processing hidden">
+                        <div class="spinner"></div>
+                        <h4 style="font-family: var(--font-heading); font-size:1.3rem; margin-bottom:8px;">Processando transação com Stripe...</h4>
+                        <p style="font-size:0.9rem; color: var(--brown-700);">Aguarde a comunicação com o gateway seguro.</p>
+                    </div>
+
+                    <!-- Vista 3: Recibo de Sucesso -->
+                    <div id="checkout-success-view" class="checkout-view checkout-success-view hidden">
+                        <div class="success-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <h3>Pagamento Aprovado!</h3>
+                        <p>Sua compra foi concluída com sucesso pelo gateway Stripe. O comprovante foi gerado.</p>
+
+                        <div class="receipt-card">
+                            <div class="receipt-row">
+                                <span>ID da Transação Stripe:</span>
+                                <strong id="receipt-transaction-id">ch_123456789</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span>Obra Adquirida:</span>
+                                <strong id="receipt-book-title">Título do Livro</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span>Valor Cobrado:</span>
+                                <strong id="receipt-total-price">R$ 0,00</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span>Forma de Pagamento:</span>
+                                <strong id="receipt-card-brand">Cartão final 4242</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span>E-mail do Comprovante:</span>
+                                <strong id="receipt-email-target">cliente@exemplo.com</strong>
+                            </div>
+                        </div>
+
+                        <button type="button" id="btn-finish-success" class="btn-primary" style="width: 100%; justify-content: center;">
+                            Concluir e Voltar ao Catálogo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

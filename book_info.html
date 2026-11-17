@@ -1,15 +1,298 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livraria Virtual</title>
-    <link rel="stylesheet" href="book_info.css">
+    <title>Detalhes do Livro — Livraria Virtual</title>
+    <link rel="icon" type="image/jpeg" href="Logo.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Informações do Livro</h1>
-    <div class="book-info">
+
+    <!-- Cabeçalho Principal -->
+    <header class="header-wrapper">
+        <div class="menu">
+            <a href="index.html#home" class="brand-link" aria-label="Página inicial da Livraria Virtual">
+                <img class="logo" src="Logo.jpeg" alt="Logo da Livraria Virtual">
+                <span class="titulo">Livraria Virtual</span>
+            </a>
+
+            <nav aria-label="Navegação principal">
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Início</a></li>
+                    <li><a href="index.html#catalogo">Catálogo</a></li>
+                    <li><a href="index.html#vender">Quero Vender</a></li>
+                    <li><a href="index.html#avaliacoes">Avaliações</a></li>
+                    <li><a href="index.html#catalogo" class="btn-nav-action">Ver Catálogo</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" aria-label="Alternar navegação" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="book-details-root">
+        <section class="book-details-section">
+            <div class="container">
+                <!-- Navegação Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Caminho de navegação">
+                    <a href="index.html#home">Início</a>
+                    <span>&rsaquo;</span>
+                    <a href="index.html#catalogo">Catálogo</a>
+                    <span>&rsaquo;</span>
+                    <span id="details-breadcrumb-title" style="color: var(--brown-900); font-weight: 600;">Carregando...</span>
+                </nav>
+
+                <div class="book-details-layout">
+                    <!-- Coluna da Capa -->
+                    <div class="details-cover-box">
+                        <div class="details-cover-wrapper">
+                            <img id="details-cover-img" class="details-cover-img" src="" alt="Capa da obra">
+                        </div>
+                    </div>
+
+                    <!-- Coluna de Informações e Compra -->
+                    <div class="details-content">
+                        <div class="details-tags">
+                            <span id="details-category-tag" class="book-category">Literatura</span>
+                            <span id="details-condition-tag" class="book-condition">Seminovo</span>
+                        </div>
+
+                        <h1 id="details-title">Título da Obra</h1>
+                        <p id="details-author" class="details-author">Por Autor</p>
+
+                        <!-- Caixa de Preço e Ação -->
+                        <div class="details-price-box">
+                            <div>
+                                <span class="book-price-label">Valor do Exemplar</span>
+                                <div id="details-price" class="details-price">R$ 0,00</div>
+                                <span style="font-size: 0.85rem; color: var(--green-success); font-weight: 600;">Frete Grátis com Envio Imediato</span>
+                            </div>
+                            <div>
+                                <button type="button" id="details-buy-btn" class="btn-hero" style="padding: 14px 28px;">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                                    Comprar via Stripe
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sinopse -->
+                        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 8px;">Sinopse da Obra</h3>
+                        <p id="details-description" style="color: var(--brown-700); line-height: 1.7; margin-bottom: 28px;">Carregando sinopse...</p>
+
+                        <!-- Ficha Técnica -->
+                        <h3 style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 8px;">Especificações do Exemplar</h3>
+                        <table class="details-specs-table">
+                            <tbody>
+                                <tr>
+                                    <th>Editora:</th>
+                                    <td id="spec-publisher">Carregando...</td>
+                                </tr>
+                                <tr>
+                                    <th>Número de Páginas:</th>
+                                    <td id="spec-pages">Carregando...</td>
+                                </tr>
+                                <tr>
+                                    <th>Ano de Publicação:</th>
+                                    <td id="spec-year">Carregando...</td>
+                                </tr>
+                                <tr>
+                                    <th>Estado de Conservação:</th>
+                                    <td id="spec-condition">Carregando...</td>
+                                </tr>
+                                <tr>
+                                    <th>Idioma:</th>
+                                    <td>Português (Brasil)</td>
+                                </tr>
+                                <tr>
+                                    <th>Formato:</th>
+                                    <td>Capa Comum / Brochura</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="margin-top: 32px;">
+                            <a href="index.html#catalogo" class="btn-secondary">
+                                &larr; Voltar ao Catálogo Completo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 Livraria Virtual. Todos os direitos reservados.</p>
+                <p><a href="index.html#catalogo" style="color: #fff; text-decoration: underline;">Voltar ao Catálogo de Livros</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE CHECKOUT STRIPE -->
+    <div id="stripe-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+        <div class="modal-container">
+            <button id="modal-close-btn" class="modal-close-btn" aria-label="Fechar checkout" type="button">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <div class="stripe-modal-layout">
+                <!-- Coluna 1: Resumo do Pedido -->
+                <div class="stripe-order-summary">
+                    <div>
+                        <div class="stripe-badge-top">
+                            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            <span>Stripe Checkout</span>
+                        </div>
+
+                        <div class="modal-book-preview">
+                            <img id="modal-book-img" class="modal-book-img" src="" alt="Capa do livro selecionado">
+                            <div class="modal-book-details">
+                                <h4 id="modal-book-title" class="modal-book-title">Carregando livro...</h4>
+                                <p id="modal-book-author" class="modal-book-author">Autor</p>
+                                <span id="modal-book-cond" class="modal-book-cond">Seminovo</span>
+                            </div>
+                        </div>
+
+                        <div class="order-breakdown">
+                            <div class="breakdown-row">
+                                <span>Subtotal da obra</span>
+                                <span id="modal-order-subtotal">R$ 0,00</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Frete padrão</span>
+                                <span style="color: var(--green-success); font-weight:600;">Grátis</span>
+                            </div>
+                            <div class="breakdown-row total">
+                                <span>Total a pagar</span>
+                                <span id="modal-order-total">R$ 0,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="security-notice">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <span>Criptografia de ponta a ponta de 256 bits via gateway Stripe.</span>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Formulário de Pagamento Stripe -->
+                <div class="stripe-payment-form">
+                    <!-- Vista 1: Formulário Principal -->
+                    <div id="checkout-form-view" class="checkout-view">
+                        <h3 id="checkout-modal-title" class="form-header-title">Finalizar Compra</h3>
+                        <p class="form-header-sub">Preencha seus dados para simular o pagamento com validação da Stripe.</p>
+
+                        <!-- Banner de Simulação com Botão de Auto-preenchimento -->
+                        <div class="simulation-banner">
+                            <div class="sim-info">
+                                <strong>Ambiente de Teste Ativo</strong><br>
+                                Use o cartão de teste oficial ou clique ao lado.
+                            </div>
+                            <button type="button" id="btn-autofill-test" class="btn-autofill-test">Preencher Teste</button>
+                        </div>
+
+                        <form id="stripe-payment-form">
+                            <div class="checkout-grid">
+                                <div class="checkout-field full">
+                                    <label class="checkout-label" for="customer-name">Nome Completo</label>
+                                    <input id="customer-name" class="input" type="text" placeholder="Nome impresso no cartão" required>
+                                </div>
+
+                                <div class="checkout-field">
+                                    <label class="checkout-label" for="customer-email">E-mail para Envio</label>
+                                    <input id="customer-email" class="input" type="email" placeholder="seu@email.com" required>
+                                </div>
+
+                                <div class="checkout-field">
+                                    <label class="checkout-label" for="customer-cpf">CPF do Titular</label>
+                                    <input id="customer-cpf" class="input" type="text" placeholder="000.000.000-00" maxlength="14" required>
+                                </div>
+
+                                <div class="checkout-field full">
+                                    <label class="checkout-label" for="card-number">Número do Cartão de Crédito</label>
+                                    <div class="card-input-wrapper">
+                                        <input id="card-number" class="input" type="text" placeholder="4242 4242 4242 4242" maxlength="19" required>
+                                        <div id="card-brand-indicator" class="card-brand-indicator">
+                                            <span class="card-brand-tag">STRIPE</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="checkout-field">
+                                    <label class="checkout-label" for="card-exp">Validade (MM/AA)</label>
+                                    <input id="card-exp" class="input" type="text" placeholder="MM/AA" maxlength="5" required>
+                                </div>
+
+                                <div class="checkout-field">
+                                    <label class="checkout-label" for="card-cvc">Código CVC</label>
+                                    <input id="card-cvc" class="input" type="text" placeholder="123" maxlength="4" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="btn-stripe-pay" class="btn-stripe-pay">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                <span id="btn-pay-amount">Pagar com Stripe</span>
+                            </button>
+
+                            <p class="stripe-footer-note">Ambiente seguro com conformidade PCI-DSS. Transação simulada.</p>
+                        </form>
+                    </div>
+
+                    <!-- Vista 2: Processamento com Spinner -->
+                    <div id="checkout-processing-view" class="checkout-view checkout-processing hidden">
+                        <div class="spinner"></div>
+                        <h4 style="font-family: var(--font-heading); font-size:1.3rem; margin-bottom:8px;">Processando transação com Stripe...</h4>
+                        <p style="font-size:0.9rem; color: var(--brown-700);">Aguarde a comunicação com o gateway seguro.</p>
+                    </div>
+
+                    <!-- Vista 3: Recibo de Sucesso -->
+                    <div id="checkout-success-view" class="checkout-view checkout-success-view hidden">
+                        <div class="success-icon-wrapper">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <h3>Pagamento Aprovado!</h3>
+                        <p>Sua compra foi concluída com sucesso pelo gateway Stripe. O comprovante foi gerado.</p>
+
+                        <div class="receipt-card">
+                            <div class="receipt-row">
+                                <span>ID da Transação Stripe:</span>
+                                <strong id="receipt-transaction-id">ch_123456789</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span>Obra Adquirida:</span>
+                                <strong id="receipt-book-title">Título do Livro</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span>Valor Cobrado:</span>
+                                <strong id="receipt-total-price">R$ 0,00</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span>Forma de Pagamento:</span>
+                                <strong id="receipt-card-brand">Cartão final 4242</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span>E-mail do Comprovante:</span>
+                                <strong id="receipt-email-target">cliente@exemplo.com</strong>
+                            </div>
+                        </div>
+
+                        <button type="button" id="btn-finish-success" class="btn-primary" style="width: 100%; justify-content: center;">
+                            Concluir e Voltar ao Catálogo
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 </body>
 </html>
